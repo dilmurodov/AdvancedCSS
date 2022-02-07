@@ -1,0 +1,143 @@
+.section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    display: flex;
+    padding: 20px;
+}
+
+.card1,
+.card2,
+.card3 {
+    width: 150px;
+    height: 250px;
+    background-color: #008000;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    line-height: 10px;
+}
+
+.aside {
+    position: absolute;
+    right: 10px;
+    width: 100px;
+    height: 180px;
+    bottom: 10px;
+    background-color: #add8e6;
+}
+
+/* anime */
+
+.animation {
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: backwards;
+    animation-delay: 0.3s;
+}
+
+.card1,
+.card2,
+.card3 {
+    animation-name: pop;
+}
+
+.section {
+    animation: border 1.5s ease-in 3.6s forwards;
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5, 0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+.aside {
+    animation-name: animate-slide;
+}
+
+@keyframes animate-slide {
+    0% {
+        opacity: 0;
+        transform: translate(0, 80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+h1 {
+    animation-name: animate-slide-left;
+}
+
+@keyframes animate-slide-left {
+    0% {
+        opacity: 0;
+        transform: translate(-40px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes border {
+    0% {
+        border: 5px solid transparent;
+    }
+
+    100% {
+        border: 5px solid forestgreen;
+    }
+}
+
+.delay1 {
+    animation-delay: 0.9s;
+}
+
+.delay2 {
+    animation-delay: 1.2s;
+}
+
+/* =============================== */
+.delay3 {
+    animation-delay: 1.8s;
+}
+
+.delay4 {
+    animation-delay: 2.1s;
+}
+
+.delay5 {
+    animation-delay: 2.4s;
+}
+
+/* ============================== */
+.delay6 {
+    animation-delay: 3s;
+}
+
+.delay7 {
+    animation-delay: 3.3s;
+}
+
+.delay8 {
+    animation-delay: 3.6s;
+}
