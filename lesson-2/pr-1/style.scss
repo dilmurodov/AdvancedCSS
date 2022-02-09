@@ -1,178 +1,4 @@
-// // Mixin from Hugo Giraudel, you can read the article here: http://hugogiraudel.com/2013/04/02/items-on-circle/
-
-// // NOTE: Remove all Compass dependencies, now handle prefixes with Autoprefixer
-
-// /**
-//  * Mixin to put items on a circle
-//  * [1] - Allows children to be absolutely positioned
-//  * [2] - Allows the mixin to be used on a list
-//  * [3] - In case box-sizing: border-box has been enabled
-//  * [4] - Allows any type of direct children to be targeted
-//  */
-
-// @mixin putOnCircle(
-//     $nb-items,
-//     //Number of items
-//     $circle-size,
-//     //Parent size
-//     $item-size,
-//     //Item size
-//     $class-for-IE: false //Base class name, false means use of pseudo-selectors
-// ) {
-//     $half-item: $item-size / 2;
-//     $half-parent: $circle-size / 2;
-
-//     position: relative; /* [1] */
-//     width: $circle-size;
-//     height: $circle-size;
-//     padding: 0;
-//     border-radius: 50%;
-//     list-style: none; /* [2] */
-//     box-sizing: content-box; /* [3] */
-
-//     > * {
-//         /* [4] */
-//         display: block;
-//         position: absolute;
-//         top: 50%;
-//         left: 50%;
-//         width: $item-size;
-//         height: $item-size;
-//         margin: -$half-item;
-
-//         $angle: 360 / $nb-items;
-//         $rot: 0;
-//         @for $i from 1 to $nb-items+1 {
-//             // If no support for IE8-
-
-//             @if $class-for-IE == false {
-//                 &:nth-of-type(#{$i}) {
-//                     // rotate is used twice to reset the element position: see this for more info http://dabblet.com/gist/3866686
-//                     transform: rotate(#{$rot}deg) translate($half-parent) scale(1);
-//                 }
-//             }
-//             $rot: $rot + $angle;
-//         }
-//     }
-// }
-// span{
-//     position: relative;
-// }
-// span::after{
-//     content: "";
-//     position: absolute;
-//     width: 10px;
-//     height: 10px;
-//     background-color: #fff;
-//     z-index: 1;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-// }
-
-// // Vars
-// // @TODO: not working with map so far, need to find a way to catch index while looping on map
-// $loader-colors: (
-//     tory-blue: #1164a6,
-//     java: #12b5d8,
-//     keppel: #45b69a,
-//     forest-green: #40a722,
-//     la-rioja: #9cc119,
-//     ripe-lemon: #f1d613,
-//     mandy: #e84b7e,
-//     rouge: #9c398b,
-// );
-
-// $loader-colors-list: mix(#1164a6, tomato), mix(#12b5d8, aquamarine), mix(#45b69a, aliceblue), mix(#40a722, violet),
-//     mix(#9cc119, purple), mix(#e84b7e, yellow), mix(#9c398b, cyan), mix(green, red);
-
-// $loader-wrapper-size: 150px;
-// $loader-size: 30px;
-// $loader-count: 8;
-
-// $loader-radius: 50%;
-// $loader-aniamtion-duration: 0.8s;
-
-// body {
-//     background: #ececec;
-// }
-
-// .loaders {
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//     transform: translate(-50%, -50%);
-//     border: 1px solid red;
-// }
-
-// .loaders-wrapper {
-//     @include putOnCircle($loader-count, $loader-wrapper-size, $loader-size, false);
-//     border: 1px solid red;
-//     //animation: rotate ((0.8s * 8)/2) linear infinite 1.4s;
-//     //animation-fill-mode: forwards;
-//     left: 0;
-//     margin-left: auto;
-//     margin-right: auto;
-//     position: relative;
-//     right: 0;
-
-//     > * {
-//         @each $color in $loader-colors-list {
-//             // catch index
-//             $index: index($loader-colors-list, $color);
-
-//             &:nth-child(#{$index}) {
-//                 animation-fill-mode: none;
-//                 animation: dotDance $loader-aniamtion-duration cubic-bezier(0.77, 0.1, 0.175, 1) infinite 0s alternate,
-//                     changeIndex 0.2s linear (($index * 1.2) * 1s) infinite;
-
-//                 // changeIndex 0.1s linear infinite (($index+1 * 0.2)*1s) alternate;
-//                 //animation: dotDance 0.8s cubic-bezier(0.770, 0.100, 0.175, 1.000) infinite 0s alternate;
-//             }
-//         }
-//     }
-// }
-
-// .loader {
-//     //animation: dotDance 0.8s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite 0s;
-//     // NOTE: change the cubic besier curve
-//     //animation-direction: alternate;
-//     border-radius: $loader-radius;
-//     display: inline-block;
-//     height: $loader-size;
-//     left: 0;
-//     margin-left: auto;
-//     margin-right: auto;
-//     position: absolute;
-//     right: 0;
-//     width: $loader-size;
-
-//     @each $color in $loader-colors-list {
-//         // catch index
-//         $index: index($loader-colors-list, $color);
-//         &:nth-child(#{$index}) {
-//             background: $color;
-//         }
-//     }
-// }
-
-// @keyframes dotDance {
-//     0% {
-//         transform: translate(0%) scale(4); // big to small parts, testing changeIndex animations
-//         //transform: translate(0%) scale(0.7);
-//     }
-// }
-
-// @keyframes changeIndex {
-//     // NB: Animation duration last twice the specified time.
-//     0%,
-//     100% {
-//         z-index: 4;
-//     }
-// }
-
-// 
-body{
+body {
     background-color: #ececec;
 }
 @mixin border {
@@ -218,22 +44,25 @@ $colors__list: (#886477, #49dad6, #9bd7cd, #979588, #8e614d, #f4a53f, #4e9cc5, #
     border-radius: 50%;
     // border: 1px solid rebeccapurple;
 }
+@mixin circle($color) {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color;
+}
 @for $i from 1 through length($colors__list) {
     $color: nth($colors__list, $i);
     .loader:nth-child(#{$i})::before {
         // content: "#{$i}";
-        content: "";
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: $color;
+        @include circle($color);
     }
 }
 
 .loader::before {
     animation-name: center;
     animation-duration: 1.8s;
-    animation-timing-function: cubic-bezier(0.770, 0.100, 0.175, 1.000);
+    animation-timing-function: cubic-bezier(0.77, 0.1, 0.175, 1);
     animation-iteration-count: infinite;
 }
 
