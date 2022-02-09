@@ -26,7 +26,7 @@
     transform-origin: center;
     align-self: center;
     text-align: center;
-    background: linear-gradient(45deg, #FB3640, #3DB2FF, #28FFBF, #28FFBF, #FAFF00);
+    background: linear-gradient( #FB3640, #3DB2FF, #28FFBF, #28FFBF, #FAFF00, #ff3de5);
 }
 
 .box::after {
@@ -44,7 +44,6 @@
     from {
         transform: rotate(0deg);
     }
-
     to {
         transform: rotate(180deg);
     }
